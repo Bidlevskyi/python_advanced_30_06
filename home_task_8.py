@@ -19,7 +19,6 @@ def couter_words(func):
 
 @couter_words
 def print_file(file_name):
-    print(file_name)
     file_n = str(file_name)
     with open(file_n, 'r') as file:
         print(file.read())
