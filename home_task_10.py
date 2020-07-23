@@ -61,4 +61,29 @@ class Time:
     def __str__(self):
         return f"Time: {self._hours}-{self._minutes}-{self._seconds}"
         
+    def shift_hours(self, value):
+        self._hours = (self._hours + value) % 24
 
+    def shift_minutes(self, value):
+        if (self._minutes + value) > 59:
+            sh_hours = (self._minutes + value) // 60
+            shift_hours(sh_hours)
+            self._minutes = (self._minutes + value) % 60
+        else:
+            self._minutes = (self._minutes + value)
+    
+    def shift_seconds(self, value):
+        if (self._seconds + value) > 59:
+            shi_hours = (self._seconds + value) // 3600
+            shi_minutes = ((self._seconds + value) % 3600) // 60
+            shift_hours(shi_hours)
+            shift_minutes(shi_minutes)
+            self._seconds = ((self._seconds + value) % 3600) % 60
+
+
+
+time1 = Time(13, 2, 6)
+print(time1)
+time1.shift_minutes(555)
+
+print(time1)
