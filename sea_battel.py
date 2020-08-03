@@ -61,7 +61,6 @@ class Battel:
                 print('')
                 print('enemy fild')
                 print('')
-                print(self.enemy_of_user1)
                 self.print_fild(self.enemy_of_user1)
                 x1, y1 = self.test_input()
                 if self.fild_user2[x1][y1] == '~':
@@ -72,6 +71,7 @@ class Battel:
                     print('you are shoted there before')
                     break
                 self.fild_user2[x1][y1] = 'x'
+                self.enemy_of_user1[x1][y1] = 'x'
                 self.count_ships_user2.discard((x1, y1))
                 if len(self.count_ships_user2) == 0:
                     winner = "User1"
@@ -96,6 +96,7 @@ class Battel:
                     print('you are shoted there before')
                     break
                 self.fild_user1[x2][y2] = 'x'
+                self.enemy_of_user2[x2][y2] = 'x'
                 self.count_ships_user1.discard((x1, y1))
                 if len(self.count_ships_user1) == 0:
                      winner = "User2"
